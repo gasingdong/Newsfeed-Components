@@ -10,10 +10,21 @@ class Article {
     this.expandButton.textContent = 'Click to Expand';
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener('click', () => this.expandArticle());
+
+    //Close button
+    this.closeButton = this.domElement.querySelector('.closeButton');
+    this.closeButton.textContent = 'Close';
+    this.closeButton.addEventListener('click', () => this.closeArticle());
+
     this.isOpen = false;
     this.slideAnim = TweenMax.to(this.domElement, 1, {
       height: '400px',
     }).reverse();
+  }
+
+  closeArticle() {
+    // Deletes the article from the page
+    this.domElement.classList.toggle('article-closed');
   }
 
   expandArticle() {
