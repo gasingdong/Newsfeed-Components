@@ -49,3 +49,29 @@ class Article {
 
 let articles = document.querySelectorAll('.article');
 articles.forEach(article => new Article(article));
+
+// Function to build new articles and add them to the site
+function buildArticle(headlineIn, dateIn, ...text) {
+  const div = document.createElement('div');
+  div.classList.add('article');
+  const headline = document.createElement('h2');
+  headline.textContent = headlineIn;
+  div.appendChild(headline);
+  const close = document.createElement('span');
+  close.classList.add('closeButton');
+  div.appendChild(close);
+  const date = document.createElement('p');
+  date.textContent = dateIn;
+  date.classList.add('date');
+  div.appendChild(date);
+  text.forEach(element => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = element;
+    div.appendChild(paragraph);
+  });
+  const expand = document.createElement('span');
+  expand.classList.add('expandButton');
+  div.appendChild(expand);
+  document.querySelector('.articles').appendChild(div);
+  new Article(div);
+}
