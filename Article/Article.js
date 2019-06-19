@@ -75,3 +75,18 @@ function buildArticle(headlineIn, dateIn, ...text) {
   document.querySelector('.articles').appendChild(div);
   new Article(div);
 }
+
+// Link form submission to build article logic
+const form = document.querySelector('form');
+form.addEventListener('submit', event => {
+  // Prevent submission from reloading page
+  event.preventDefault();
+  const elements = form.elements;
+  const headline = elements[0].value;
+  const date = elements[1].value;
+
+  // Pass text as an array to account for paragraph formation
+  const text = elements[2].value.split('\n');
+  buildArticle(headline, date, ...text);
+  form.reset();
+});
