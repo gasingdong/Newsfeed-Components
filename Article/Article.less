@@ -61,5 +61,31 @@
    display: none;
  }
 
+ .form-container {
+
+   .form {
+     display: flex;
+     justify-content: center;
+     width: 100%;
+
+     form {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+
+      input[type=text], textarea {
+        width: 100%;
+      }
+
+      input[type=submit] {
+        margin-top: 10px;
+        width: 50%;
+      }
+     }
+   }
+ }
+
 
 

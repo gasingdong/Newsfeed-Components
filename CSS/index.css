@@ -118,6 +118,26 @@
 .article-closed {
   display: none;
 }
+.form-container .form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.form-container .form form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.form-container .form form input[type=text],
+.form-container .form form textarea {
+  width: 100%;
+}
+.form-container .form form input[type=submit] {
+  margin-top: 10px;
+  width: 50%;
+}
 html,
 body {
   margin: 0;
