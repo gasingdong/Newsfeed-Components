@@ -5,14 +5,14 @@ class Article {
     // assign this.domElement to the passed in domElement
     this.domElement = domElement;
     // create a reference to the ".expandButton" class.
-    this.expandButton = this.domElement.querySelector('.expandButton');
+    this.expandButton = this.domElement.querySelector('.expand-button');
     // Using your expandButton reference, update the text on your expandButton to say "expand"
     this.expandButton.textContent = 'Click to Expand';
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener('click', () => this.expandArticle());
 
     //Close button
-    this.closeButton = this.domElement.querySelector('.closeButton');
+    this.closeButton = this.domElement.querySelector('.close-button');
     this.closeButton.textContent = 'Close';
     this.closeButton.addEventListener('click', () => this.closeArticle());
 
@@ -58,7 +58,7 @@ function buildArticle(headlineIn, dateIn, ...text) {
   headline.textContent = headlineIn;
   div.appendChild(headline);
   const close = document.createElement('span');
-  close.classList.add('closeButton');
+  close.classList.add('close-button');
   div.appendChild(close);
   const date = document.createElement('p');
   date.textContent = dateIn;
@@ -70,7 +70,7 @@ function buildArticle(headlineIn, dateIn, ...text) {
     div.appendChild(paragraph);
   });
   const expand = document.createElement('span');
-  expand.classList.add('expandButton');
+  expand.classList.add('expand-button');
   div.appendChild(expand);
   document.querySelector('.articles').appendChild(div);
   new Article(div);
