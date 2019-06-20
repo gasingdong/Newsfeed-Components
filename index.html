@@ -4,6 +4,7 @@
   <head>
     <title>Lambda School Newsfeed</title>
     <link rel="stylesheet" type="text/css" media="screen" href="./CSS/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="./Menu/Menu.js" async></script>
     <script src="./Article/Article.js" async></script>
   </head>
@@ -25,6 +26,7 @@
     <div class="articles">
       <div class="article">
         <h2>Lambda School Students: "We're the best!"</h2>
+        <span class='close-button'></span>
         <p class="date">Nov 5th, 2017</p>
 
         <p>Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -44,10 +46,11 @@
         naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
         han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
         moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.</p>
-        <span class='expandButton'></span>
+        <span class='expand-button'></span>
       </div>
       <div class="article">
         <h2>Javascript and You, ES6</h2>
+        <span class='close-button'></span>
         <p class="date">Nov 7th, 2017</p>
         <p>Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost
         Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot
@@ -60,10 +63,11 @@
         wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir
         mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma
         and Parvati Sorting Hat Minister of Magic blue turban remember my last.</p>
-        <span class='expandButton'></span>
+        <span class='expand-button'></span>
       </div>
       <div class="article">
         <h2>React vs Angular vs Vue</h2>
+        <span class='close-button'></span>
         <p class="date">Nov 7th, 2017</p>
 
         <p>Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -86,10 +90,11 @@
         adipiscing elit. Nidorina Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoqueen Lorem ipsum dolor sit amet,
         consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum dolor
         sit amet, consectetur adipiscing elit. Nidoking Lorem ipsum</p>
-        <span class='expandButton'></span>
+        <span class='expand-button'></span>
       </div>
       <div class="article">
         <h2>Professional Software Development in 2018</h2>
+        <span class='close-button'></span>
         <p class="date">Nov 7th, 2017</p>
         <p>Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
@@ -109,7 +114,35 @@
           hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
           hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
           hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? </p>
-        <span class='expandButton'></span>
+        <span class='expand-button'></span>
+      </div>
+      <div class="article">
+        <h2>Ninety-Nine Blocks of Code On the Wall</h2>
+        <span class='close-button'></span>
+        <p class="date">Jun 19th, 2019</p>
+        <p>Lorem ipsum non duis adipiscing justo eget fermentum consequat, eget cursus leo elit primis leo suspendisse vivamus, lectus
+          fermentum facilisis justo ornare netus massa iaculis ad arcu lorem suspendisse pulvinar bibendum sem aliquet etiam, diam
+          placerat dui nunc lacinia vehicula gravida molestie aliquam duis, lacinia risus gravida etiam praesent metus ultricies etiam
+          congue fermentum pharetra hac non fringilla interdum mauris odio phasellus torquent.</p>
+
+        <p>Lorem sollicitudin morbi mauris felis tristique torquent, quam cubilia adipiscing ligula habitant, nostra dolor viverra ut in
+          phasellus turpis nullam torquent iaculis arcu gravida est habitant, adipiscing bibendum hendrerit porta ut eget hendrerit mollis
+          augue, bibendum congue dapibus vivamus etiam hendrerit amet accumsan ac litora vestibulum felis feugiat conubia sed ad litora ad
+          fermentum aliquam.</p>
+        <span class="expand-button"></span>
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="form">
+        <form>
+          <p>Headline:<br></p>
+          <input type="text"><br>
+          <p>Date:<br></p>
+          <input type="text"><br>
+          <p>Content:<br></p>
+          <textarea rows="5"></textarea><br>
+          <input type="submit" id="add-article" value="Add Article">
+        </form>
       </div>
     </div>
   </body>
