@@ -145,3 +145,8 @@ function createArticle(data) {
   );
   return article;
 }
+
+const articles = document.querySelector('.articles');
+data.forEach(dataItem => {
+  articles.appendChild(createArticle(dataItem));
+});
