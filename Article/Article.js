@@ -143,19 +143,23 @@ function createArticle(data) {
     return newPara;
   });
   const articleButton = document.createElement('span');
+  const closeButton = document.createElement('span');
 
   /*Add text content*/
   articleTitle.textContent = data.title;
   articleDate.textContent = data.date;
   articleButton.textContent = 'Click to Expand';
+  closeButton.textContent = 'Close';
 
   /*Add classes*/
   article.classList.add('article');
   articleDate.classList.add('date');
   articleButton.classList.add('expand-button');
+  closeButton.classList.add('close-button');
 
   /*Structuring nodes*/
   article.appendChild(articleTitle);
+  article.appendChild(closeButton);
   article.appendChild(articleDate);
   articleContent.forEach(c => article.appendChild(c));
   article.appendChild(articleButton);
@@ -165,11 +169,18 @@ function createArticle(data) {
   let slideAnim = TweenMax.to(article, 1, {
     height: '400px',
   }).reverse();
+
+  /*Expand/Contract button*/
   articleButton.addEventListener('click', () => {
     isOpen = !isOpen;
     articleButton.textContent = isOpen ? 'Click to Close' : 'Click to Expand';
     slideAnim.reversed(!slideAnim.reversed());
   });
+
+  /*Close button*/
+  closeButton.addEventListener('click', () => {
+    article.classList.toggle('article-closed');
+  })
   return article;
 }
 
