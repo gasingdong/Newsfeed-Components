@@ -114,6 +114,7 @@ const data = [
 */
 
 function createArticle(data) {
+  const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
   const articleContent = [
@@ -130,10 +131,17 @@ function createArticle(data) {
   articleTitle.textContent = data.title;
   articleDate.textContent = data.date;
 
+  article.classList.add('article');
   articleDate.classList.add('date');
   articleButton.classList.add('expand');
 
-  articleButton.addEventListener('click', event =>
-    event.target.parent.classList.toggle('article-open')
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  articleContent.forEach(c => article.appendChild(c));
+  article.appendChild(articleButton);
+
+  articleButton.addEventListener('click', () =>
+    article.classList.toggle('article-open')
   );
+  return article;
 }
