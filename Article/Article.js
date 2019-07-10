@@ -128,21 +128,32 @@ function createArticle(data) {
   });
   const articleButton = document.createElement('span');
 
+  /*Add text content*/
   articleTitle.textContent = data.title;
   articleDate.textContent = data.date;
+  articleButton.textContent = 'Click to Expand';
 
+  /*Add classes*/
   article.classList.add('article');
   articleDate.classList.add('date');
-  articleButton.classList.add('expand');
+  articleButton.classList.add('expand-button');
 
+  /*Structuring nodes*/
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
   articleContent.forEach(c => article.appendChild(c));
   article.appendChild(articleButton);
 
-  articleButton.addEventListener('click', () =>
-    article.classList.toggle('article-open')
-  );
+  /*Event listener*/
+  let isOpen = false;
+  let slideAnim = TweenMax.to(article, 1, {
+    height: '400px',
+  }).reverse();
+  articleButton.addEventListener('click', () => {
+    isOpen = !isOpen;
+    articleButton.textContent = isOpen ? 'Click to Close' : 'Click to Expand';
+    slideAnim.reversed(!slideAnim.reversed());
+  });
   return article;
 }
 
