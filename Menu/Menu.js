@@ -49,9 +49,17 @@ function createMenu(data) {
 
   menu.appendChild(menuNav);
 
-  menuButton.addEventListener('click', () =>
-    menu.classList.toggle('menu--open')
-  );
+  let isOpen = false;
+  let slideAnim = TweenMax.to(menu, 1, { left: '0' }).reverse();
+  const toggleMenu = () => {
+    menu.classList.toggle('menu--open');
+    slideAnim.reversed(!slideAnim.reversed());
+    isOpen = !isOpen;
+  }
+  menuButton.addEventListener('click', event => {
+    event.stopPropagation();
+    toggleMenu();
+  });
   return menu;
 }
 
