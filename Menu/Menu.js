@@ -37,7 +37,7 @@ let menuItems = [
 function createMenu(data) {
   const menu = document.createElement('div');
   const menuNav = document.createElement('ul');
-  const menuData = data.forEach(item => {
+  const menuData = data.map(item => {
     const newItem = document.createElement('li');
     newItem.textContent = item;
     menuNav.appendChild(newItem);
