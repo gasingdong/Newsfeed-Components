@@ -39,4 +39,23 @@ function createForm(data) {
   return form;
 }
 
-document.querySelector('.form-container').appendChild(createForm(formData));
+const formContainer = document.querySelector('.form-container');
+formContainer.appendChild(createForm(formData));
+
+/*Link form submission to createArticle*/
+const formElement = document.querySelector('form');
+formElement.addEventListener('submit', event => {
+  event.preventDefault();
+  const elements = formElement.elements;
+  const text = elements[2].value.split('\n');
+  const article = {
+    title: elements[0].value,
+    date: elements[1].value,
+    /*Workaround for text content that is not exactly three paragraphs*/
+    firstParagraph: text[0] ? text[0] : '',
+    secondParagraph: text[1] ? text[1] : '',
+    thirdParagraph: text[2] ? text[2] : '',
+  };
+  document.querySelector('.articles').appendChild(createArticle(article));
+  formElement.reset();
+})
