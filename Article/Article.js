@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-// Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
-
-class Article {
-  constructor(domElement) {
-    // assign this.domElement to the passed in domElement
-    this.domElement = domElement;
-    // create a reference to the ".expandButton" class.
-    this.expandButton = this.domElement.querySelector('.expand-button');
-    // Using your expandButton reference, update the text on your expandButton to say "expand"
-    this.expandButton.textContent = 'Click to Expand';
-    // Set a click handler on the expandButton reference, calling the expandArticle method.
-    this.expandButton.addEventListener('click', () => this.expandArticle());
-
-    //Close button
-    this.closeButton = this.domElement.querySelector('.close-button');
-    this.closeButton.textContent = 'Close';
-    this.closeButton.addEventListener('click', () => this.closeArticle());
-
-    this.isOpen = false;
-    this.slideAnim = TweenMax.to(this.domElement, 1, {
-      height: '400px',
-    }).reverse();
-  }
-
-  closeArticle() {
-    // Deletes the article from the page
-    this.domElement.classList.toggle('article-closed');
-  }
-
-  expandArticle() {
-    // Using our reference to the domElement, toggle a class to expand or hide the article.
-    // With the animation, we don't need to toggle this anymore
-    // this.domElement.classList.toggle('article-open');
-    this.isOpen = !this.isOpen;
-    this.expandButton.textContent = this.isOpen
-      ? 'Click to Close'
-      : 'Click to Expand';
-    this.slideAnim.reversed(!this.slideAnim.reversed());
-=======
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
 const data = [
@@ -60,7 +20,7 @@ const data = [
     thirdParagraph: `Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
         naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
         han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
-        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
+        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`,
   },
   {
     title: 'Javascript and You, ES6',
@@ -80,7 +40,7 @@ const data = [
     thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights 
         Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven 
         roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot 
-        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
+        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`,
   },
   {
     title: 'React vs Angular vs Vue',
@@ -108,7 +68,7 @@ const data = [
 
     thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel 
         Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James 
-        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
+        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`,
   },
   {
     title: 'Professional Software Development in 2019',
@@ -124,9 +84,8 @@ const data = [
 
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
->>>>>>> 85bc58fdef7c8d8a654052a753b72efc2ac59d9e
-  }
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+  },
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -148,54 +107,29 @@ const data = [
 
   Step 3: return the entire component.
 
-<<<<<<< HEAD
-let articles = document.querySelectorAll('.article');
-articles.forEach(article => new Article(article));
-
-// Function to build new articles and add them to the site
-function buildArticle(headlineIn, dateIn, ...text) {
-  const div = document.createElement('div');
-  div.classList.add('article');
-  const headline = document.createElement('h2');
-  headline.textContent = headlineIn;
-  div.appendChild(headline);
-  const close = document.createElement('span');
-  close.classList.add('close-button');
-  div.appendChild(close);
-  const date = document.createElement('p');
-  date.textContent = dateIn;
-  date.classList.add('date');
-  div.appendChild(date);
-  text.forEach(element => {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = element;
-    div.appendChild(paragraph);
-  });
-  const expand = document.createElement('span');
-  expand.classList.add('expand-button');
-  div.appendChild(expand);
-  document.querySelector('.articles').appendChild(div);
-  new Article(div);
-}
-
-// Link form submission to build article logic
-const form = document.querySelector('form');
-form.addEventListener('submit', event => {
-  // Prevent submission from reloading page
-  event.preventDefault();
-  const elements = form.elements;
-  const headline = elements[0].value;
-  const date = elements[1].value;
-
-  // Pass text as an array to account for paragraph formation
-  const text = elements[2].value.split('\n');
-  buildArticle(headline, date, ...text);
-  form.reset();
-});
-=======
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
->>>>>>> 85bc58fdef7c8d8a654052a753b72efc2ac59d9e
+
+function createArticle(data) {
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleContent = [
+    data.firstParagraph,
+    data.secondParagraph,
+    data.thirdParagraph,
+  ].map(p => {
+    const newPara = document.createElement('p');
+    newPara.textContent = p;
+    return newPara;
+  });
+  const articleButton = document.createElement('span');
+
+  articleTitle.textContent = data.title;
+  articleDate.textContent = data.date;
+
+  articleDate.classList.add('date');
+  articleButton.classList.add('expand');
+}
