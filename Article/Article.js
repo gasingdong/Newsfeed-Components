@@ -132,4 +132,8 @@ function createArticle(data) {
 
   articleDate.classList.add('date');
   articleButton.classList.add('expand');
+
+  articleButton.addEventListener('click', event =>
+    event.target.parent.classList.toggle('article-open')
+  );
 }
