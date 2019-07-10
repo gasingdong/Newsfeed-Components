@@ -45,10 +45,11 @@ function createMenu(data) {
   });
   const menuButton = document.querySelector('.menu-button');
 
+  /*Menu structure*/
   menu.classList.add('menu');
-
   menu.appendChild(menuNav);
 
+  /*Animation controls*/
   let isOpen = false;
   let slideAnim = TweenMax.to(menu, 1, { left: '0' }).reverse();
   const toggleMenu = () => {
@@ -56,11 +57,12 @@ function createMenu(data) {
     slideAnim.reversed(!slideAnim.reversed());
     isOpen = !isOpen;
   };
+
+  /*Event listeners*/
   menuButton.addEventListener('click', event => {
     event.stopPropagation();
     toggleMenu();
   });
-
   menu.addEventListener('click', event => event.stopPropagation());
   document.querySelector('html').addEventListener('click', () => {
     if (isOpen) {
