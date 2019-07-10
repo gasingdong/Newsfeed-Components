@@ -86,6 +86,22 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    title: 'Ninety-Nine Blocks of Code On the Wall',
+    date: 'Jun 19th, 2019',
+    firstParagraph: `Lorem ipsum non duis adipiscing justo eget fermentum consequat, eget cursus leo elit primis leo suspendisse vivamus, lectus 
+          fermentum facilisis justo ornare netus massa iaculis ad arcu lorem suspendisse pulvinar bibendum sem aliquet etiam, diam
+          placerat dui nunc lacinia vehicula gravida molestie aliquam duis, lacinia risus gravida etiam praesent metus ultricies etiam
+          congue fermentum pharetra hac non fringilla interdum mauris odio phasellus torquent.`,
+    secondParagraph: `Lorem ipsum non duis adipiscing justo eget fermentum consequat, eget cursus leo elit primis leo suspendisse vivamus, lectus
+          fermentum facilisis justo ornare netus massa iaculis ad arcu lorem suspendisse pulvinar bibendum sem aliquet etiam, diam
+          placerat dui nunc lacinia vehicula gravida molestie aliquam duis, lacinia risus gravida etiam praesent metus ultricies etiam
+          congue fermentum pharetra hac non fringilla interdum mauris odio phasellus torquent.`,
+    thirdParagraph: `Lorem ipsum non duis adipiscing justo eget fermentum consequat, eget cursus leo elit primis leo suspendisse vivamus, lectus
+          fermentum facilisis justo ornare netus massa iaculis ad arcu lorem suspendisse pulvinar bibendum sem aliquet etiam, diam
+          placerat dui nunc lacinia vehicula gravida molestie aliquam duis, lacinia risus gravida etiam praesent metus ultricies etiam
+          congue fermentum pharetra hac non fringilla interdum mauris odio phasellus torquent.`,
+  },
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
