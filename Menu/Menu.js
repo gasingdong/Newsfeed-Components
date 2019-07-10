@@ -55,11 +55,18 @@ function createMenu(data) {
     menu.classList.toggle('menu--open');
     slideAnim.reversed(!slideAnim.reversed());
     isOpen = !isOpen;
-  }
+  };
   menuButton.addEventListener('click', event => {
     event.stopPropagation();
     toggleMenu();
   });
+
+  menu.addEventListener('click', event => event.stopPropagation());
+  document.querySelector('html').addEventListener('click', () => {
+    if (isOpen) {
+      toggleMenu();
+    }
+  })
   return menu;
 }
 
