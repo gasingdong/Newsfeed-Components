@@ -1,4 +1,4 @@
-var menuItems = [
+let menuItems = [
   'Students',
   'Faculty',
   "What's New",
@@ -31,38 +31,36 @@ var menuItems = [
   
 */
 function createMenu(data) {
-  var menu = document.createElement('div');
-  var menuNav = document.createElement('ul');
-  data.forEach(function(item) {
-    var newItem = document.createElement('li');
+  const menu = document.createElement('div');
+  const menuNav = document.createElement('ul');
+  data.forEach(item => {
+    const newItem = document.createElement('li');
     newItem.textContent = item;
     menuNav.appendChild(newItem);
   });
-  var menuButton = document.querySelector('.menu-button');
+  const menuButton = document.querySelector('.menu-button');
   /*Menu structure*/
   menu.classList.add('menu');
   menu.appendChild(menuNav);
   /*Animation controls*/
-  var isOpen = false;
-  var slideAnim = TweenMax.to(menu, 1, { left: '0' }).reverse();
-  var toggleMenu = function() {
+  let isOpen = false;
+  let slideAnim = TweenMax.to(menu, 1, { left: '0' }).reverse();
+  const toggleMenu = () => {
     menu.classList.toggle('menu--open');
     slideAnim.reversed(!slideAnim.reversed());
     isOpen = !isOpen;
   };
   /*Event listeners*/
   if (menuButton) {
-    menuButton.addEventListener('click', function(event) {
+    menuButton.addEventListener('click', event => {
       event.stopPropagation();
       toggleMenu();
     });
   }
-  menu.addEventListener('click', function(event) {
-    return event.stopPropagation();
-  });
-  var html = document.querySelector('html');
+  menu.addEventListener('click', event => event.stopPropagation());
+  const html = document.querySelector('html');
   if (html) {
-    html.addEventListener('click', function() {
+    html.addEventListener('click', () => {
       if (isOpen) {
         toggleMenu();
       }
@@ -70,7 +68,7 @@ function createMenu(data) {
   }
   return menu;
 }
-var body = document.querySelector('body');
+const body = document.querySelector('body');
 if (body) {
   body.insertBefore(createMenu(menuItems), document.querySelector('.articles'));
 }
