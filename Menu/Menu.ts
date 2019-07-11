@@ -1,4 +1,7 @@
-var menuItems = [
+/* This is the data we will be using, study it but don't change anything, yet. */
+export {}
+
+let menuItems = [
   'Students',
   'Faculty',
   "What's New",
@@ -6,7 +9,8 @@ var menuItems = [
   'Music',
   'Log Out',
 ];
-/*
+
+/* 
 
   Step 1: Write a function that will create a menu component as seen below:
 
@@ -18,7 +22,7 @@ var menuItems = [
 
   Pass the function an array as it's only argument.
 
-  Step 2: Iterate over the array creating a list item <li> element for each item in the array.
+  Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>
 
   Step 3: Using a DOM selector, select the menu button currently on the DOM.
@@ -30,47 +34,52 @@ var menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
-function createMenu(data) {
-  var menu = document.createElement('div');
-  var menuNav = document.createElement('ul');
-  data.forEach(function(item) {
-    var newItem = document.createElement('li');
+
+function createMenu(data: string[]) {
+  const menu: HTMLElement = document.createElement('div');
+  const menuNav: HTMLElement = document.createElement('ul');
+  data.forEach(item => {
+    const newItem = document.createElement('li');
     newItem.textContent = item;
     menuNav.appendChild(newItem);
   });
-  var menuButton = document.querySelector('.menu-button');
+  const menuButton: HTMLElement | null = document.querySelector('.menu-button');
+
   /*Menu structure*/
   menu.classList.add('menu');
   menu.appendChild(menuNav);
+
   /*Animation controls*/
-  var isOpen = false;
-  var slideAnim = TweenMax.to(menu, 1, { left: '0' }).reverse();
-  var toggleMenu = function() {
+  let isOpen: boolean = false;
+  let slideAnim: any = TweenMax.to(menu, 1, { left: '0' }).reverse();
+  const toggleMenu: () => void = () => {
     menu.classList.toggle('menu--open');
     slideAnim.reversed(!slideAnim.reversed());
     isOpen = !isOpen;
   };
+
   /*Event listeners*/
   if (menuButton) {
-    menuButton.addEventListener('click', function(event) {
+    menuButton.addEventListener('click', event => {
       event.stopPropagation();
       toggleMenu();
     });
   }
-  menu.addEventListener('click', function(event) {
-    return event.stopPropagation();
-  });
-  var html = document.querySelector('html');
+  menu.addEventListener('click', event => event.stopPropagation());
+  const html: HTMLElement | null = document.querySelector('html');
+
   if (html) {
-    html.addEventListener('click', function() {
+    html.addEventListener('click', () => {
       if (isOpen) {
         toggleMenu();
       }
-    });
+    })
   }
   return menu;
 }
-var body = document.querySelector('body');
+
+const body: HTMLElement | null = document.querySelector('body');
+
 if (body) {
   body.insertBefore(createMenu(menuItems), document.querySelector('.articles'));
 }
